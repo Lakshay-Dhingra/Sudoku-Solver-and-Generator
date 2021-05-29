@@ -1,3 +1,4 @@
 JRE System Library/
 bin/
-*.class/
+*.class
+.project/
