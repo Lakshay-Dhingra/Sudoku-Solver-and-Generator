@@ -2,11 +2,10 @@ package backend;
 
 public class SudokuSolver
 {
- private static char[][] arr;
- public void solveSudoku(char[][] board)
+ private static byte[][] arr;
+ public static void solveSudoku(byte[][] board)
  {
      arr=board;
-     // System.out.println(solver(0,0));
      solver(0,0);
  }
  
@@ -21,7 +20,7 @@ public class SudokuSolver
          return true;
      }
      
-     if(arr[i][j] != '.')
+     if(arr[i][j] != 0)
      {
          return solver(i,j+1);
      }
@@ -29,7 +28,7 @@ public class SudokuSolver
      {
          for(int x=1;x<10;x++)
          {
-             char val = (char)(x+48);
+             byte val = (byte)(x);
              
              if(isValid(i,j,val))
              {
@@ -38,17 +37,15 @@ public class SudokuSolver
                      return true;
              }
          }
-         // System.out.println(i+" "+j);
-         arr[i][j]='.';
+
+         arr[i][j]=0;
          return false;
      }
  }
  
  
- private static boolean isValid(int iptr, int jptr,char val)
+ private static boolean isValid(int iptr, int jptr,byte val)
  {
-     // int val = arr[iptr][jptr];
-     // System.out.println(val);
      for(int j=0;j<9;j++)
      {
          if(j!=jptr)
@@ -83,6 +80,5 @@ public class SudokuSolver
          }
      }
      return true;
-     
  }
 }
