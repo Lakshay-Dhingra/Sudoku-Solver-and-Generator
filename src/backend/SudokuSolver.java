@@ -43,7 +43,6 @@ public class SudokuSolver
      }
  }
  
- 
  private static boolean isValid(int iptr, int jptr,byte val)
  {
      for(int j=0;j<9;j++)
@@ -81,4 +80,51 @@ public class SudokuSolver
      }
      return true;
  }
+ 
+ public static int countSudokuSolutions(byte[][] board)
+ {
+     arr = new byte[board.length][];
+     for(int i=0;i<board.length;i++)
+     {
+    	 arr[i] = board[i].clone();
+     }
+     return countSolutions(0,0);
+ }
+ 
+ private static int countSolutions(int i, int j)
+ {
+	 if(j > 8)
+     {
+         return countSolutions(i+1,0);
+     }
+     if(i > 8)
+     {
+         return 1;
+     }
+     
+     if(arr[i][j] != 0)
+     {
+         return countSolutions(i,j+1);
+     }
+     else
+     {
+         int ans=0;
+    	 for(int x=1;x<10;x++)
+         {
+             byte val = (byte)(x);
+             
+             if(isValid(i,j,val))
+             {
+                 arr[i][j]=val;
+                 ans+=countSolutions(i,j+1);
+             }
+         }
+
+         arr[i][j]=0;
+         return ans;
+     }
+ }
+ 
+ 
+ 
 }

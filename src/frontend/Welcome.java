@@ -1,5 +1,6 @@
 package frontend;
 
+import testing.TestSudokuApp;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -10,6 +11,7 @@ public class Welcome extends BasicFrame
 	
 	public Welcome()
 	{
+		TestSudokuApp.testGenerateGrid();
 		makeVisible();
 	}
 	

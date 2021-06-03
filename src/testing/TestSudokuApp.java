@@ -1,11 +1,11 @@
 package testing;
-import backend.SudokuGenerator;
+import backend.*;
 
 public class TestSudokuApp
 {
-	public static void testGenerateBaseGrid(String[] args)
+	public static void testGenerateGrid()
 	{
-		byte[][] board = SudokuGenerator.generateBaseGrid(1245);
+		byte[][] board = SudokuGenerator.generateGrid(1245, "Easy");
 		for(int row=0;row<9;row++)
 		{
 			for(int col=0;col<9;col++)
@@ -14,5 +14,8 @@ public class TestSudokuApp
 			}
 			System.out.println();
 		}
+		System.out.println();
+		
+//		System.out.println(SudokuSolver.countSudokuSolutions(board));
 	}
 }
