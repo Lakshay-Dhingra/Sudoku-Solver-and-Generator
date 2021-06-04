@@ -1,17 +1,18 @@
 package frontend;
 
-import testing.TestSudokuApp;
 import java.awt.*;
-import javax.swing.*;
 import java.awt.event.*;
+import javax.swing.*;
 
-public class Welcome extends BasicFrame
+import testing.TestSudokuApp;
+
+public class GameScreen extends BasicFrame
 {
 	private static final long serialVersionUID = 1L;
 	
-	public Welcome()
+	public GameScreen()
 	{
-//		TestSudokuApp.testGenerateGrid();
+		TestSudokuApp.testGenerateGrid();
 		makeVisible();
 	}
 	
@@ -124,6 +125,9 @@ public class Welcome extends BasicFrame
 					enter_seed_panel.add(enter_seed_input);
 				enter_seed_panel.setVisible(true);
 				main_section.add(enter_seed_panel);
+				
+//				main_heading_panel.setBorder(BorderFactory.createLineBorder(Color.GRAY, 4));
+				
 				
 				JPanel footer_space_panel=new JPanel();
 				footer_space_panel.setLayout(new FlowLayout(FlowLayout.CENTER,10,20));
